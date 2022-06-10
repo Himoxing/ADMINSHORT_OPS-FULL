@@ -1,0 +1,656 @@
+<html>
+<!-- ----- ExeScript Options Begin -----
+ ScriptType: window,invoker
+ DestDirectory: temp
+ Icon: default
+ OutputFile: C:\Users\Himo\Desktop\kk.exe
+ 32Bit: yes
+ ----- ExeScript Options End ----- -->
+<head>
+<title> ADMINSHORT_OPS </title>
+
+
+<style type="text/css">
+
+body
+{
+    background-image:url("https://i.gyazo.com/b0f95d232c6aa2dd5b91fa3f1a3a6532.gif");
+    font-family:font-family :"Comic Sans MS";
+    color : white;
+    color: lightgreen;
+}
+input 
+{
+    font-family : "Comic Sans MS";
+    background-image :url("https://i.gyazo.com/b0f95d232c6aa2dd5b91fa3f1a3a6532.gif");
+    color : lightgreen;
+    cursor: hand;
+}
+
+div{
+  text-align: center;
+  color:  greenyellow;
+}
+
+#cab1{
+  text-align: center;
+  color: green;
+}
+
+
+</style>
+
+
+
+<HTA:APPLICATION 
+     ID="ADMIN"
+     APPLICATIONNAME="application.hta"     
+     SINGLEINSTANCE="no"
+     WINDOWSTATE="normal"
+     ICON="https://www.inclo.net/images/favicons/favicon-green.ico"
+     VERSION="0.1"
+     />
+    
+
+
+<script language="VBScript">
+self.ResizeTo 660, 650
+Sub Window_Onload
+   self.MoveTo (screen.availWidth - (document.body.clientWidth)-800),50
+End Sub
+</script>
+
+
+<!-- NETSTAT -->
+<script type="text/vbscript"> 
+Sub netstat() 
+Set objShell = CreateObject("WScript.Shell")
+strCommand = "C:\Windows\System32\cmd.exe /k NETSTAT -AO 04"
+objShell.Run strCommand, 1
+End Sub
+</script>
+
+<!-- PING -->
+<script type="text/vbscript"> 
+Sub ping() 
+Set objShell = CreateObject("WScript.Shell")
+strCommand = "C:\Windows\System32\cmd.exe /k PING google.com -t"
+objShell.Run strCommand, 1
+End Sub
+</script>
+
+
+<!-- VER DNS -->
+<script type="text/vbscript"> 
+Sub verdns() 
+Set objShell = CreateObject("WScript.Shell")
+strCommand = "C:\Windows\System32\cmd.exe /c IPCONFIG /displaydns > ResultsADMINSHORT_OPS.dat"
+objShell.Run strCommand, 1
+strCommand = "C:\Windows\System32\cmd.exe /c start notepad ResultsADMINSHORT_OPS.dat"
+objShell.Run strCommand, 1
+
+End Sub
+</script>
+
+<!-- ADMIN. dispositivos -->
+<script type="text/vbscript"> 
+Sub admindisp() 
+Set objShell = CreateObject("WScript.Shell")
+strCommand = "C:\Windows\System32\cmd.exe /c RunDll32.exe devmgr.dll DeviceManager_Execute"
+objShell.Run strCommand, 1
+End Sub
+</script>
+
+<!-- Mensaje-->
+<script type="text/vbscript"> 
+Sub mensaje()
+Const TIMEOUT = 5
+Set objShell = CreateObject("WScript.Shell")
+//objShell.Popup "Disk Report Complete", TIMEOUT
+//objShell.Popup "Stop Icon / Abort, Retry and Ignore Buttons", _
+   //10, "Popup Example", VbOK
+objShell.Popup "Activado", TIMEOUT
+End Sub
+</script>
+
+<!-- Obtener dato -->
+<script type="text/vbscript"> 
+Sub obtener()
+Dim r
+r= BasicTextbox.Value
+Msgbox BasicTextbox.Value, 65, "Aviso del sistema"
+Msgbox "Hola " + r,65, "Aviso del sistema"
+End Sub
+</script>
+
+
+<!-- Introducir dato -->
+<script type="text/vbscript"> 
+Sub introducir()
+Dim t
+t=Inputbox("introduce un nombre","Aviso del sistema","")
+Msgbox "Hola "+t ,65, "Aviso del sistema"
+End Sub
+</script>
+
+<!-- Datos del sistema -->
+
+<script type="text/vbscript">
+Sub sistema()
+Set objShell = CreateObject("WScript.Shell")
+//strCommand = "C:\Windows\System32\cmd.exe /c echo Usuario: %USERNAME% , Maquina: %COMPUTERNAME% , Dominio: %USERDOMAIN%, OS: %OS% >> resultado.dat"
+//strCommand = "C:\Windows\System32\cmd.exe /k echo Usuario: %USERNAME% , Maquina: %COMPUTERNAME% , Dominio: %USERDOMAIN%, OS: %OS%"
+strCommand = "C:\Windows\System32\cmd.exe /k systeminfo"
+objShell.Run strCommand, 1
+End Sub
+</script>
+
+
+<!-- Instalación de antivirus, programa -->
+<script type="text/vbscript">
+Sub instalacion()
+Dim Ans 
+Set objShell = CreateObject("WScript.Shell")
+Ans = MsgBox("Desea continuar con la instalacion?", vbYesNo,"Instalación del antivirus F-Secure")
+Select Case Ans
+  Case vbYes 
+   Msgbox "Si, continuar",65, "Aviso del sistema"
+   strCommand = "C:\Windows\System32\cmd.exe /c start antivirus/F-Secure.exe"
+  Case vbNo  
+   Msgbox "No, cancelar",65, "Aviso"
+   strCommand = "C:\Windows\System32\cmd.exe /c dir"
+End Select
+objShell.Run strCommand, 1
+End Sub
+</script>
+
+<script type="text/vbscript">
+Sub note()
+Dim strApps
+Set objShell = CreateObject("WScript.Shell")
+strApps = "write.exe"
+objShell.Run strApps, 1
+
+
+End Sub 
+</script>
+<script type="text/vbscript">
+Sub pn()
+Dim strApps
+Set objShell = CreateObject("WScript.Shell")
+strApps = "mspaint.exe"
+objShell.Run strApps, 1
+
+
+End Sub 
+</script>
+<script type="text/vbscript">
+Sub pad()
+Dim strApps
+Set objShell = CreateObject("WScript.Shell")
+strApps = "notepad.exe"
+objShell.Run strApps, 1
+
+
+End Sub 
+</script>
+<script type="text/vbscript">
+Sub cmd()
+Dim strApps
+Set objShell = CreateObject("WScript.Shell")
+strApps = "cmd.exe"
+objShell.Run strApps, 1
+
+
+End Sub 
+</script>
+
+<script type="text/vbscript">
+Sub sf()
+Set objShell = CreateObject("WScript.Shell")
+strCommand = "C:\Windows\System32\cmd.exe /c  Rundll32.exe shdocvw.dll, DoOrganizeFavDlg "
+objShell.Run strCommand, 1
+End Sub 
+</script>
+<script type="text/vbscript">
+Sub ck()
+Set objShell = CreateObject("WScript.Shell")
+strCommand = "C:\Windows\System32\cmd.exe /c  rundll32.exe InetCpl.cpl, ClearMyTracksByProcess 2 "
+objShell.Run strCommand, 1
+End Sub 
+</script>
+<script type="text/vbscript">
+Sub rh()
+Set objShell = CreateObject("WScript.Shell")
+strCommand = "C:\Windows\System32\cmd.exe /c  rundll32.exe InetCpl.cpl, ClearMyTracksByProcess 255 "
+objShell.Run strCommand, 1
+End Sub 
+</script>
+<script type="text/vbscript">
+Sub ps()
+Set objShell = CreateObject("WScript.Shell")
+strCommand = "C:\Windows\System32\cmd.exe /c  rundll32.exe InetCpl.cpl, ClearMyTracksByProcess 32 "
+objShell.Run strCommand, 1
+End Sub 
+</script>
+
+<script type="text/vbscript">
+Sub impresora()
+Set objShell = CreateObject("WScript.Shell")
+strCommand = "C:\Windows\System32\cmd.exe /c Rundll32 Shell32.dll,SHHelpShortcuts_RunDLL PrintersFolder"
+objShell.Run strCommand, 1
+End Sub 
+</script>
+
+<script type="text/vbscript">
+Sub ap()
+Set objShell = CreateObject("WScript.Shell")
+strCommand = "C:\Windows\System32\cmd.exe /c  rundll32.exe Shell32.dll, Control_RunDLL Sysdm.cpl ,, 3 "
+objShell.Run strCommand, 1
+End Sub 
+</script>
+
+<script type="text/vbscript">
+Sub iw()
+Set objShell = CreateObject("WScript.Shell")
+strCommand = "C:\Windows\System32\cmd.exe /c  rundll32.exe SHELL32.DLL, ShellAbout "
+objShell.Run strCommand, 1
+End Sub 
+</script>
+
+<script type="text/vbscript">
+Sub nm()
+Set objShell = CreateObject("WScript.Shell")
+strCommand = "C:\Windows\System32\cmd.exe /c  rundll32.exe Shell32.dll, SHHelpShortcuts_RunDLL Connect "
+objShell.Run strCommand, 1
+End Sub 
+</script>
+
+<script type="text/vbscript">
+Sub an()
+Set objShell = CreateObject("WScript.Shell")
+strCommand = "C:\Windows\System32\cmd.exe /c  rundll32.exe shell32.dll, Control_RunDLL NetSetup.cpl "
+objShell.Run strCommand, 1
+End Sub 
+</script>
+
+<script type="text/vbscript">
+Sub fw()
+Set objShell = CreateObject("WScript.Shell")
+strCommand = "C:\Windows\System32\cmd.exe /c  rundll32.exe shell32.dll, Control_RunDLL firewall.cpl "
+objShell.Run strCommand, 1
+End Sub 
+</script>
+
+<script type="text/vbscript">
+Sub descarga()
+Dim vide
+Set objShell = CreateObject("WScript.Shell")
+vide= Video.Value
+Msgbox "Video "+vide,65, "Descargar"
+strCommand = "C:\Windows\System32\cmd.exe /k C:\Users\USUARIO\Desktop\ejemplosProg\utilidades\utilidadesSFW\youtube-dl.exe " + vide
+objShell.Run strCommand, 1
+End Sub 
+</script>
+
+<script type="text/vbscript">
+Sub GetCommand()
+Dim MyComm
+//Dim Resultado
+Dim Resultado2
+Dim aRet 
+Set objShell = CreateObject("WScript.Shell")
+MyComm= MyCommando.Value
+MsgBox "Command: "& MyComm, vbInformation, "ADMINSHORT_CMD" 
+Set aRet = objShell.exec(MyComm)
+Resultado = aRet.StdOut.ReadAll()
+//Aqui va el resultado:
+//MyResultado.Value " =" & Resultado 
+MyResultado2.Value= " " & Resultado 
+End Sub 
+</script>
+
+<script type="text/vbscript">
+Sub GetExecute()
+Dim aRet 
+Dim Resultado3
+Set objShell = CreateObject("WScript.Shell")
+Set regexIP = CreateObject("VBScript.RegExp")
+MyValue= Selector.Value 
+MyIP= My_IP.Value
+Correcto=False
+
+
+If (MyValue <>"") And (MyIP <> "") Then 
+  Msgbox "Command: "&MyValue &" IP: "&MyIP ,vbInformation,"ADMINSHORT_CMD"
+  
+
+  //verificar IP
+  regexIP.Global= True
+  regexIP.Pattern="\b(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\b"
+  Set oMatches = regexIP.Execute(MyIP)
+  For Each oMatch In oMatches
+    //Msgbox "1. Encontrada: "&oMatch.Value,vbInformation,""
+    Correcto=True
+  Next
+
+  If Correcto = True Then 
+    Msgbox "3. Inicia calculo ... "&MyValue&" "&MyIP,vbInformation,""
+    Set aRet = objShell.exec(MyValue&" "&MyIP)
+    Resultado3 = aRet.StdOut.ReadAll()
+    //Aqui va el resultado:
+    MyResultado3.Value= " " & Resultado3
+    
+  End If 
+
+End If
+
+
+
+//Msgbox "Elegiste "&MyValue &" la IP es "&MyIP ,vbInformation,""
+End Sub 
+</script>
+
+<!-- Inicio -->
+<script type="text/vbscript">
+Sub Inicio
+Dim Resultado4
+Dim Resultado5
+Dim Resultado6
+Dim aRet 
+Dim bRet 
+Set objShell = CreateObject("WScript.Shell")
+strCommand="C:\Windows\System32\cmd.exe /c echo %USERNAME%"
+Set aRet = objShell.exec(strCommand)
+Resultado4 = aRet.StdOut.ReadAll()
+MyResultado4.Value=  Resultado4
+
+
+
+strCommand2="C:\Windows\System32\cmd.exe /c ARP -a"
+Set aRet = objShell.exec(strCommand2)
+Resultado5 = aRet.StdOut.ReadAll()
+MyResultado5.Value=  Resultado5
+
+
+//strCommand3= "C:\Windows\System32\cmd.exe /c nmap -sP 148.215.24.*"
+//Set bRet= objShell.exec(strCommand3)
+//Resultado6= bRet.StdOut.ReadAll()
+//MyResultado6.Value=Resultado6
+
+End Sub
+</script>
+
+
+
+<!-- Limpiar -->
+<script type="text/vbscript">
+Sub Limpiar
+MyResultado2.Value=""
+MyResultado3.Value=""
+//Video.Value=""
+My_IP.Value=""
+MyCommando.Value=""
+End Sub 
+</script>
+
+
+<script language="vbscript">
+
+Function btnExit()
+window.close()
+End Function
+
+
+ 
+
+
+
+
+</script>
+
+
+
+
+
+
+</head>
+<!--powderblue-->
+<body style="color:#7401DF; background-color: #EDEFEE; font-family: Verdana;" onload="Inicio()">
+
+
+
+
+<!--
+<div>
+Escribe o pega la URL del v&iacute;deo (youtube):
+  <input type="text" name="Video" value="" size="30">
+<input class="button" type="button" value="Descargar v&iacute;deo" onclick="descarga()">
+</div>
+-->
+
+
+
+<h1 id="cab1">
+ADMINSHORT_OPS
+</h1>
+<div style="position: relative; top: -4px; left: -480px;">
+<label>Account:</label>
+<input type="text" value="" name="MyResultado4" style="background-color: black; color: white; width: 76px; border: 0px solid #fff; text-align: center;" readonly/>
+<br><label>Active IP:</label><br/>
+<textarea  name="MyResultado5" rows=45  cols=70 readonly style="background: darkgreen;"> 
+
+</textarea>
+</div>
+
+
+<div style=" position: relative;top: -730px;left: 240px;">
+Write Command:
+<input type="text" name="MyCommando" value="" size="30">
+<input class="button" type="button" value="Run" onclick="GetCommand()"/>
+<br/>Results:
+<!--<input type="text" name="MyResultado" value="" size="35"/> -->
+<textarea name="MyResultado2" rows=10  cols=90 style="background: darkgreen;"> </textarea>
+</div>
+
+
+<div style="position: relative; top: -700px; left: 190px;">
+<p>Manager NMAP</p>
+Write IP:
+<input tyep="text" value="" name="My_IP" maxlength="15" />
+
+<label>Command: </label>
+<select name="Selector" style="background: greenyellow;">
+<option value="nmap -v -Pn -A"> nmap -v -Pn -A 
+<option value="nmap -v"> nmap -v  
+  <!-- get info-->
+<option value="nmap -Pn"> nmap -Pn 
+<option value="nmap -A"> nmap -A 
+<option value="nmap -sP"> nmap -sP 
+<option value="nmap -A -v -sP -Pn">  nmap -A -v -sP -Pn
+<option value="nmap -p 1-65535 -T4 -A -v"> nmap -p 1-65535 -T4 -A -v 
+<option value="nmap -p80"> nmap -p80
+<option value="nmap -p80 -oG"> nmap -p80 -oG
+  <!-- get info-->
+<option value="nmap -sS -P0 -sV -OP">nmap -sS -P0 -sV -OP 
+  <!-- get info-->
+<option value="nmap -sS -P0 -A -v ">nmap -sS -P0 -A -v 
+  <!-- obtener todas las ips activas -->
+  <!-- nmap -sP 148.215.24.*  -->
+  <!-- 
+  nmap -iL /tmp/test.txt
+-->
+
+</select>
+
+<input type="button" value="Run" onclick="GetExecute()"/>
+<br/>
+Results:
+<textarea name="MyResultado3" rows=10  cols=70 style="background: darkgreen;"> </textarea>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<div style="position: relative; top: -690px; left: 47px;">
+  <div>
+</div>
+  <TABLE>
+<TBODY>
+
+
+</TBODY>
+</TABLE>
+
+
+<div id="pnlBtns">
+  <h1>Functions</h1>
+<div>
+<input class="button" type="button" value="Network Statistics" onclick="netstat()">
+</div>
+
+<div>
+<input class="button" type="button" value="Network Connection" onclick="ping()">
+</div>
+
+<div>
+<input class="button" type="button" value="See DNS" onclick="verdns()">
+</div>
+
+<div>
+<input class="button" type="button" value="Admin Devices" onclick="admindisp()">
+</div>
+
+
+<div>
+<input class="button" type="button" value="System Information" onclick="sistema()">
+</div>
+
+
+
+
+<div>
+<input class="button" type="button" value="Update" onclick="()">
+</div>
+</div>
+<div style="position: relative; top: -245px; left: 328px;">
+
+
+  <h1>Shortcuts</h1>
+<div>
+<input class="button" type="button" value="FireWall" onclick="fw()">
+</div>
+
+<div>
+<input class="button" type="button" value="Add Network" onclick="an()">
+</div>
+
+<div>
+<input class="button" type="button" value="network mapping" onclick="nm()">
+</div>
+
+<div>
+<input class="button" type="button" value="Licence Information" onclick="iw()">
+</div>
+
+
+<div>
+<input class="button" type="button" value="Advaced Properties" onclick="ap()">
+</div>
+
+
+
+
+<div>
+<input class="button" type="button" value="printers" onclick="impresora()">
+</div>
+</div>
+<div style="position: relative; top: -215px; left: -510px;">
+<br><br><br><br><br><br>aa
+<div id="pnlBtns">
+  <h1>Fast Access</h1>
+<div>
+<input class="button" type="button" value="RUN WordPad" onclick="note()">
+</div>
+
+<div>
+<input class="button" type="button" value="RUN NotePad" onclick="pad()">
+</div>
+
+<div>
+<input class="button" type="button" value="RUN Paint" onclick="pn()">
+</div>
+
+<div>
+<input class="button" type="button" value="RUN CMD" onclick="cmd()">
+</div>
+
+<div style="position: relative; top: -200px; left: 410px;">
+<br><br><br>
+<div id="pnlBtns">
+  <h1>EXPLORER</h1>
+<div>
+<input class="button" type="button" value="Reset Cookies" onclick="ck()">
+</div>
+
+<div>
+<input class="button" type="button" value="Reset History" onclick="rh()">
+</div>
+
+<div>
+<input class="button" type="button" value="Reset Passwords" onclick="ps()">
+</div>
+
+<div>
+<input class="button" type="button" value="Sort Favourite" onclick="sf()">
+</div>
+
+<div style="position: relative; top: -200px; left: 380px;">
+<br><br>
+<div id="pnlBtns">
+  <h1>Defender</h1>
+<div>
+<input class="button" type="button" value="Malware Defender" onclick="()">
+</div>
+
+<div>
+<input class="button" type="button" value="Virus Scanner" onclick="()">
+</div>
+
+<div>
+<input class="button" type="button" value="VirusScope" onclick="()">
+</div>
+
+
+
+
+
+<!--
+<hr/>
+<div id="posicion">
+<input class="button" type="button" value="Aviso" onclick="mensaje()">
+</div>
+<hr/>
+<div id="posicion">
+<input type="text" name="BasicTextbox" value="" size="30"><P>
+<input id=runbutton  type="button" value="Ver dato" name="run_button"  onClick="obtener()">
+</div>
+<hr/>
+<div id="posicion">
+<input class="button" type="button" value="Introducir datos" onclick="introducir()"/>
+
+
+</div>
+-->
+
+
+</body>
+</html>
